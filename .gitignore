@@ -119,5 +119,4 @@ replay_pid*
 .idea
 build
 .bin
-.gradlew
-.gradlew.bat
+*.DS_Store
