@@ -28,15 +28,6 @@ public class Article {
     @Column(name = "content", nullable = false)
     private String content;
 
-    //엔티티 생성될 때 발행시간 저장하는 컬럼 추가
-    @CreatedDate
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
-
-    //엔티티 수정될 때 수정시간 저장하는 컬럼 추가
-    @LastModifiedDate
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
 
     @Builder
     public Article(String title, String content) {
