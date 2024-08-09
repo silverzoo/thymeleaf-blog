@@ -1,0 +1,31 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout :: layout(~{::title}, ~{::main})}">
+<head>
+    <title>블로그 글 목록</title>
+</head>
+<body>
+<main class="container mx-auto px-4 max-w-5xl">
+    <button type="button" id="create-btn"
+            th:onclick="|location.href='@{/new-article}'|"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out mb-8 flex items-center">
+        <i data-feather="plus" class="mr-2"></i> 글 등록
+    </button>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div th:each="item : ${articles}" class="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
+            <div class="px-6 py-4 bg-gray-50 border-b border-gray-100">
+                <span class="text-sm text-blue-500 font-semibold" th:text="${'#' + item.id}"></span>
+            </div>
+            <div class="p-6">
+                <h5 class="text-xl font-semibold mb-2" th:text="${item.title}"></h5>
+                <p class="text-gray-600 mb-4 line-clamp-3" th:text="${item.content}"></p>
+                <a th:href="@{/articles/{id}(id=${item.id})}"
+                   class="inline-block bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out">
+                    보러가기
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

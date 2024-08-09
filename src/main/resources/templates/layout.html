@@ -16,17 +16,11 @@
     </style>
 </head>
 <body class="text-gray-800 leading-relaxed">
-<div th:replace="~{fragments/header :: header}"></div>
+    <div th:replace="~{fragments/header :: header}"></div>
+    <div th:replace="${content}"></div>
+    <div th:replace="~{fragments/footer :: footer}"></div>
 
-<div th:replace="${content}">
-    <!-- 본문 내용 -->
-</div>
-<div th:replace="~{fragments/footer :: footer}">
-
-</div>
-<script>
-    feather.replace()
-</script>
-<script src="/js/article.js"></script>
+    <script>feather.replace()</script>
+    <script src="/js/article.js"></script>
 </body>
 </html>
