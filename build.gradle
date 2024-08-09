@@ -4,46 +4,31 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.6'
 }
 
-group = 'com.elice'
-version = '0.0.1-SNAPSHOT'
-
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(22)
-    }
-}
+group 'con.elice'
+version '1.0'
+sourceCompatibility = '22'
 
 repositories {
     mavenCentral()
 }
 
+
 dependencies {
-    //필요한 라이브러리 의존성 주입하는 공간
-    implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    //의존성 라이브러리 추가(버전 이슈로 삭제)
-    //implementation 'org.springframework:spring-context:5.3.10'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.springframework.boot:spring-boot-devtools'
 
-    //AOP 주입
-    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    runtimeOnly 'com.h2database:h2'
 
-    // lombok 주입 Gradle 5.x 이상
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
-    // jpa 주입
-    //implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-
-    //thymeleaf 주입
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-
-    //devtools 주입
-    implementation 'org.springframework.boot:spring-boot-devtools'
-
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
 }
 
-tasks.named('test') {
+
+test {
     useJUnitPlatform()
 }
