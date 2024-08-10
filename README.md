@@ -1,7 +1,5 @@
 ## 🍃 Thymeleaf 🍃 로 제작한 블로그
 ### 기본 문법과 표현식
-<br>
-
 #### 기본 문법
 
 문서 최상단에 ‘`<html xmlns:th=”http://www.thymeleaf.org”>`‘ 코드를 넣어서 사용 가능하다.
@@ -109,4 +107,4 @@
     th:replace="~{layout :: layout(~{::title}, ~{::main})}">
     <!-- Other HTML content here -->
     </html>
-    ```place |  |  |
+    ```
