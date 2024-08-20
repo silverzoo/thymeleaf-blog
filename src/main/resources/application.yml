@@ -1,0 +1,4 @@
+spring:
+  jpa:
+    # 테이블 생성 후에 .sql 파일 실행
+    defer-datasource-initialization: true
